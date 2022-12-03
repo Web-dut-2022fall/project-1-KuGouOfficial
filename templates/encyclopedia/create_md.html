@@ -1,0 +1,32 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+Encyclopedia
+{% endblock %}
+
+{% block body %}
+<h1>Create Your Page</h1>
+<p>Write down your MarkDown page in the following blank</p>
+<ul>
+
+    <form action="/create" method="post" accept-charset="value">
+        {% csrf_token %}
+        <h4>Title:</h4>
+        <div style="color: #ff5000;">{{error}}</div>
+        <div style="color: #30dc00;">{{success}}</div>
+        <br>
+        <input type="text" name="title" value="Here is your title">
+        <p></p>
+        <textarea style="white-space" name="content" rows="40" cols="80">Please write your content</textarea>
+        <input type="submit" value="提交" onclick="subm()">
+    </form>
+    <script type="text/javascript">
+function subm(){
+Document.charset="utf-8";
+}
+
+
+    </script>
+</ul>
+
+{% endblock %}

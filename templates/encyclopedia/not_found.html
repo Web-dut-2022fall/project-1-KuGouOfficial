@@ -1,0 +1,22 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+Encyclopedia
+{% endblock %}
+
+{% block body %}
+<h1>Sorry Not Found :{{item}}</h1>
+
+<ul>
+    <h3>Here are available pages: </h3>
+
+    {% for entry in entries %}
+    <li>
+        {% with "/?q="|add:entry.link as link %}
+        <a href={{link}}>{{ entry.text }}</a>
+        {% endwith %}
+    </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
